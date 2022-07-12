@@ -16,6 +16,28 @@
         <h1>CodeBlock</h1>
 
         <!-- Server URL -->
-        <code>codeblock.yessness.com</code>
+        <code onclick="copy()" onmouseout="resetTooltip()">
+            <span id="tooltip">Copy to clipboard</span>
+            codeblock.yessness.com
+        </code>
+
+        <!-- Scripts -->
+        <script>
+            const tooltip = document.querySelector("#tooltip");
+
+            function copy()
+            {
+                navigator.clipboard.writeText("codeblock.yessness.com");
+                tooltip.innerHTML = "Copied!";
+            }
+
+            function resetTooltip()
+            {
+                setTimeout(() =>
+                {
+                    tooltip.innerHTML = "Copy to clipboard";
+                }, 300);
+            }
+        </script>
     </body>
 </html>

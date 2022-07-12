@@ -31,9 +31,48 @@ body
 // Server URL
 code
 {
+    position: relative;
     padding: 1rem 2rem;
     background: $white;
     font-family: 'JetBrains Mono', monospace;
     border-radius: 1rem;
     box-shadow: $shadow 0 .5rem 2rem -.5rem;
+    cursor: pointer;
+
+    #tooltip
+    {
+        visibility: hidden;
+        position: absolute;
+        bottom: 4rem;
+        left: 50%;
+        width: max-content;
+        padding: .5rem 1rem;
+        color: $foreground;
+        background: $white;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        border-radius: .5rem;
+        opacity: 0;
+        transform: translate(-50%, 1rem);
+        transition: .3s;
+    }
+
+    #tooltip::after
+    {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -6px;
+        border-width: 6px;
+        border-style: solid;
+        border-color: $white transparent transparent transparent;
+    }
+}
+
+code:hover #tooltip
+{
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%)
 }
