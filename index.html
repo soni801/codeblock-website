@@ -5,7 +5,8 @@
         <!-- Metadata -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" href="assets/codeblock.ico">
 
         <!-- SEO -->
         <title>CodeBlock</title>
@@ -22,22 +23,6 @@
         </code>
 
         <!-- Scripts -->
-        <script>
-            const tooltip = document.querySelector("#tooltip");
-
-            function copy()
-            {
-                navigator.clipboard.writeText("codeblock.yessness.com");
-                tooltip.innerHTML = "Copied!";
-            }
-
-            function resetTooltip()
-            {
-                setTimeout(() =>
-                {
-                    tooltip.innerHTML = "Copy to clipboard";
-                }, 300);
-            }
-        </script>
+        <script type="text/javascript" src="main.js"></script>
     </body>
 </html>

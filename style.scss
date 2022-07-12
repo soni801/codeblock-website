@@ -28,6 +28,14 @@ body
     font-family: 'Poppins', sans-serif;
 }
 
+body > *
+{
+    opacity: 0;
+    transform: translateY(.5rem);
+    transition: opacity .5s ease,
+                transform .7s ease;
+}
+
 // Server URL
 code
 {
