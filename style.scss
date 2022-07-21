@@ -36,6 +36,12 @@ body > *
                 transform .7s ease;
 }
 
+// Image
+img
+{
+    width: 12rem;
+}
+
 // Server URL
 code
 {
@@ -83,4 +89,46 @@ code:hover #tooltip
     visibility: visible;
     opacity: 1;
     transform: translateX(-50%)
+}
+
+// Status indicator
+#status
+{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    #status-indicator
+    {
+        width: 1rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        animation: pulse 2s infinite ease-out; // This will unfortunately lag on Firefox, but I don't know how to fix it
+        background: rgb(var(--color));
+
+        &.online
+        {
+            --color: 50, 220, 100;
+        }
+
+        &.offline
+        {
+            --color: 250, 180, 60;
+        }
+    }
+}
+
+// Pulse animation
+@keyframes pulse
+{
+    20%
+    {
+        box-shadow: 0 0 0 0 rgba(var(--color), .8);
+        transform: scale(.9);
+    }
+
+    90%
+    {
+        box-shadow: 0 0 0 .6rem rgba(var(--color), 0);
+    }
 }
