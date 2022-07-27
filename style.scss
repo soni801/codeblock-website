@@ -18,13 +18,16 @@
     --pulse-opacity: .9;
 }
 
-.dark // Dark mode
+@media (prefers-color-scheme: dark) // Dark mode
 {
-    --background: #121217;
-    --foreground: #9595b1;
-    --shadow: transparent;
-    --white: #0e0e11;
-    --pulse-opacity: .6;
+    :root
+    {
+        --background: #121217;
+        --foreground: #9595b1;
+        --shadow: transparent;
+        --white: #0e0e11;
+        --pulse-opacity: .6;
+    }
 }
 
 //Body
