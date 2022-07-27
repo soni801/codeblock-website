@@ -2,16 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-// Colors
-$background: #e8e8ee;
-$foreground: #68688d;
-$shadow: rgba(#4e4e6a, .5);
-$white: #ffffff;
-
 // Default
 *
 {
     margin: 0;
+}
+
+// Colors
+:root // Light mode
+{
+    --background: #e8e8ee;
+    --foreground: #68688d;
+    --shadow: #{rgba(#4e4e6a, .5)};
+    --white: #ffffff;
+    --pulse-opacity: .9;
+}
+
+.dark // Dark mode
+{
+    --background: #121217;
+    --foreground: #9595b1;
+    --shadow: transparent;
+    --white: #0e0e11;
+    --pulse-opacity: .6;
 }
 
 //Body
@@ -23,8 +36,8 @@ body
     justify-content: center;
     gap: 2rem;
     height: 100vh;
-    color: $foreground;
-    background: $background;
+    color: var(--foreground);
+    background: var(--background);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -42,21 +55,35 @@ body > *
     rotate: 1deg;
 }
 
-// Image
-img
+// Logo
+#logo
 {
-    width: 12rem;
+    display: grid;
+
+    img
+    {
+        grid-area: 1 / 1;
+        width: 12rem;
+    }
+
+    .blurred
+    {
+        filter: blur(1rem);
+        opacity: .4;
+    }
 }
+
+
 
 // Server URL
 code
 {
     position: relative;
     padding: 1rem 2rem;
-    background: $white;
+    background: var(--white);
     font-family: 'JetBrains Mono', monospace;
     border-radius: 1rem;
-    box-shadow: $shadow 0 .5rem 2rem -.5rem;
+    box-shadow: var(--shadow) 0 .5rem 2rem -.5rem;
     cursor: pointer;
 
     #tooltip
@@ -67,8 +94,8 @@ code
         left: 50%;
         width: max-content;
         padding: .5rem 1rem;
-        color: $foreground;
-        background: $white;
+        color: var(--foreground);
+        background: var(--white);
         font-family: 'Poppins', sans-serif;
         text-align: center;
         border-radius: .5rem;
@@ -86,7 +113,7 @@ code
         margin-left: -6px;
         border-width: 6px;
         border-style: solid;
-        border-color: $white transparent transparent transparent;
+        border-color: var(--white) transparent transparent transparent;
     }
 }
 
@@ -129,7 +156,7 @@ code:hover #tooltip
 {
     20%
     {
-        box-shadow: 0 0 0 0 rgba(var(--color), .9);
+        box-shadow: 0 0 0 0 rgba(var(--color), var(--pulse-opacity));
         transform: scale(.93);
     }
 
