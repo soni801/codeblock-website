@@ -15,6 +15,7 @@
     --foreground: #68688d;
     --shadow: #{rgba(#4e4e6a, .5)};
     --white: #ffffff;
+    --gradient: linear-gradient(to right, #7474bf, #348ac6);
     --pulse-opacity: .9;
 }
 
@@ -76,7 +77,37 @@ body > *
     }
 }
 
+// Season info
+#season-info
+{
+    text-align: center;
 
+    button
+    {
+        color: transparent;
+        background: var(--gradient);
+        border: none;
+        cursor: pointer;
+
+        background-clip: text;
+        -webkit-background-clip: text;
+
+        &::after
+        {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            background: var(--gradient);
+            transition: .3s ease;
+        }
+
+        &:hover::after
+        {
+            width: 100%;
+        }
+    }
+}
 
 // Server URL
 code
@@ -103,6 +134,7 @@ code
         text-align: center;
         border-radius: .5rem;
         opacity: 0;
+        pointer-events: none;
         transform: translate(-50%, 1rem);
         transition: .3s;
     }
@@ -150,6 +182,80 @@ code:hover #tooltip
         &.offline
         {
             --color: 250, 180, 60;
+        }
+    }
+}
+
+// World download dialog
+dialog
+{
+    width: 100%;
+    height: 100%;
+    background: rgba(black, .5);
+
+    // Actual popup
+    > div
+    {
+        // Some weird stuff needed to position it in the center
+        position: absolute;
+        inset: 0;
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+
+        padding: 1.5rem;
+        color: var(--foreground);
+        background: var(--background);
+        border-radius: 2rem;
+
+        // Download list
+        #downloads
+        {
+            margin: 1rem 0;
+
+            .download-link
+            {
+                display: flex;
+                min-width: 35ch;
+
+                color: transparent;
+                background: var(--gradient);
+                background-clip: text;
+                -webkit-background-clip: text;
+
+                // Color needs to explicitly be reset for links because css is dumb
+                a
+                {
+                    color: transparent;
+
+                    &:hover
+                    {
+                        color: rgba(white, .2);
+                    }
+                }
+
+                p
+                {
+                    margin-left: auto;
+                }
+            }
+
+            // Download icon
+            span
+            {
+                vertical-align: bottom;
+            }
+        }
+
+        button
+        {
+            float: right;
+            padding: .5rem;
+            color: var(--foreground);
+            background: var(--white);
+            border: none;
+            border-radius: .5rem;
+            cursor: pointer;
         }
     }
 }

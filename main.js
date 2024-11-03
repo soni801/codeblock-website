@@ -6,6 +6,7 @@ const elements = document.querySelectorAll("body > *");
 const tooltip = document.querySelector("#tooltip");
 const statusIndicator = document.querySelector("#status-indicator");
 const statusText = document.querySelector("#status-text");
+const worldDownloadDialog = document.querySelector("#world-download-dialog");
 
 // Load the page
 let loadingProgress = 0;

@@ -5,8 +5,11 @@
         <!-- Metadata -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="icon" href="assets/codeblock.ico">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=download">
+        <link rel="stylesheet" type="text/css" href="style.css">
 
         <!-- SEO -->
         <title>CodeBlock</title>
@@ -31,6 +34,12 @@
         </div>
         <h1>CodeBlock</h1>
 
+        <!-- Season info -->
+        <div id="season-info">
+            <p>Season 3 live now!</p>
+            <button onclick="worldDownloadDialog.showModal()">See world downloads</button>
+        </div>
+
         <!-- Server URL -->
         <code onclick="copy()" onmouseout="resetTooltip()">
             <span id="tooltip">Copy to clipboard</span>
@@ -44,6 +53,18 @@
             </div>
             <p id="status-text"></p>
         </div>
+
+        <!-- World download popup -->
+        <dialog id="world-download-dialog">
+            <div>
+                <h1>World downloads</h1>
+                <div id="downloads">
+                    <div class="download-link"><span class="material-symbols-outlined">download</span><a href="/download/Codeblock Season 1 world.zip">Season 1 world download</a><p>640 MB</p></div>
+                    <div class="download-link"><span class="material-symbols-outlined">download</span><a href="/download/Codeblock Season 2 world.zip">Season 2 world download</a><p>1.5 GB</p></div>
+                </div>
+                <button onclick="worldDownloadDialog.close()">Close</button>
+            </div>
+        </dialog>
 
         <!-- Scripts -->
         <script type="text/javascript" src="main.js"></script>
